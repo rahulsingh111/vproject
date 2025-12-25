@@ -1,0 +1,16 @@
+services:
+  vprodb:
+    build:
+      context: ./Docker-files/db
+    image: vprocontainers/vprofiledb
+    container_name: vprodb
+    ports:
+      - "3306:3306"
+    volumes:
+      - vprodbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=vprodbpass
+      
+volumes:
+  vprodbdata: {}
+  vproappdata: {}
